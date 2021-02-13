@@ -1,0 +1,14 @@
+[Unit]
+Description=Tickers Mon Container
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=10
+Restart=always
+RestartSec=30
+ExecStart=/usr/bin/docker run --rm -t -v /home/tickers.csv:/bot/tickers.csv -e bot_chatID='' -e bot_token='' mercury131/tickers-mon:latest
+ExecStop=/bin/sh -c "/usr/bin/docker rm $(/usr/bin/docker ps |/bin/grep tickers-mon | /usr/bin/awk '{print $1}') -f"
+
+[Install]
+WantedBy=multi-user.target
