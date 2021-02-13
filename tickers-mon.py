@@ -46,7 +46,7 @@ with open(csvfile, "r") as a_file:
     stripped_line = line.strip()
     tickers.append(stripped_line)
 
-print(tickers)
+telegram_bot_sendtext("Bot started",bot_token,bot_chatID)
 olddata = dict()
 while True:
   data = dict()
