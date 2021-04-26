@@ -13,7 +13,7 @@ bot_chatID = ''
 
 bot_token = ''
 
-timeout=300
+timeout=100
 
 wtrigger=2
 
